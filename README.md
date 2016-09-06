@@ -6,6 +6,8 @@
 
 
 ## Actualizaciones:
+
+- 06/09/2016: Modelo usuario(User.php),Illuminate-Database como envoltorio o ORM de nuestra DB, autoload de las clases mediante composer.json (php composer.phar dump-autoload -o), clase database con parametros de Noodlehaus-Config. 
 - 05/09/2016: Se predefine el tipo de configuracion para el Slin con la libreria Noodlehaus-Config, se crea la carpeta data donde tendremos el backup de la db.
 - 04/09/2016: Se define las configuraciones dependiendo del entorno del proyecto(development-production).
 - 03/09/2016: Definiendo la Estructura general del proyecto.

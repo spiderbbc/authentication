@@ -2,7 +2,7 @@
 <?php
 use Slim\Slim;
 use Noodlehaus\Config;
-
+use \Authentication\User\User;
 
 session_cache_limiter(false);
 session_start();
@@ -22,10 +22,7 @@ $app = new Slim([
 #echo $app->mode;
 #echo INC_ROOT.'/app/config/'.trim($app->mode).'.php';
 
-# manera de sobre escribir el config 'mode' de app
-$app->configureMode($app->config('mode'), function() use ($app){
-  $app->config = Config::load(INC_ROOT.'/app/config/'.trim($app->mode).'.php');
-});
+
 
 # utilizando la libreria de configuracion de vendor/hassankhan
 
@@ -43,6 +40,20 @@ $app->get('/hello/:name', function ($name) {
 */
 
 #var_dump($app->config);
+# manera de sobre escribir el config 'mode' de app
+$app->configureMode($app->config('mode'), function() use ($app){
+  $app->config = Config::load(INC_ROOT.'/app/config/'.trim($app->mode).'.php');
+});
 
 # como accedemos a las opciones del config utilizando la libreria hassankhan
 #echo $app->config->get('db.driver');
+
+require_once 'database.php';
+
+# instanciamos mediante nanespace y autoloader del composer(composeer.json)
+#$user = new \Authentication\User\User;
+$app->container->set('user',function (){
+  return new User;
+});
+
+var_dump($app->user);
