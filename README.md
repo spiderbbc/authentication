@@ -6,6 +6,7 @@
 
 
 ## Actualizaciones:
+- 05/09/2016: Se predefine el tipo de configuracion para el Slin con la libreria Noodlehaus-Config, se crea la carpeta data donde tendremos el backup de la db.
 - 04/09/2016: Se define las configuraciones dependiendo del entorno del proyecto(development-production).
 - 03/09/2016: Definiendo la Estructura general del proyecto.
 ## License
